@@ -7,7 +7,6 @@ ActiveAdmin.register JobApplication do
       input :company
       input :job
       input :contact
-      input :website
       input :url
       input :still_acceptign_applications
       input :refused
@@ -16,5 +15,24 @@ ActiveAdmin.register JobApplication do
     end
 
     actions
+  end
+
+  show do
+    attributes_table do
+      row :company
+      row :company_location do |job_application|
+        job_application.location
+      end
+      row :job
+      row :contact
+      row :url
+      row :still_acceptign_applications
+      row :refused
+      row :date_applied
+      row :created_at
+      row :updated_at
+    end
+
+    active_admin_comments
   end
 end

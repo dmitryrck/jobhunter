@@ -1,3 +1,3 @@
 ActiveAdmin.register Company do
-  permit_params :name, :website, :linkedin_url
+  permit_params :name, :website, :linkedin_url, :location
 end
