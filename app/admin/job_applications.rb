@@ -1,5 +1,6 @@
 ActiveAdmin.register JobApplication do
-  permit_params :company_id, :job_id, :contact_id, :date_applied
+  permit_params :company_id, :job_id, :contact_id, :website, :url,
+    :date_applied, :still_acceptign_applications, :refused
 
   form do |f|
     inputs t("active_admin.details", model: resource_class) do
