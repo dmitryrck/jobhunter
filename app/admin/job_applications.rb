@@ -35,4 +35,17 @@ ActiveAdmin.register JobApplication do
 
     active_admin_comments
   end
+
+  index do
+    selectable_column
+
+    id_column
+
+    column :company
+    column :job
+    column :refused
+    column :date_applied
+
+    actions
+  end
 end
