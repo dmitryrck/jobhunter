@@ -4,7 +4,7 @@ class CreateJobApplications < ActiveRecord::Migration[5.2]
       t.references :company, foreign_key: true
       t.references :job, foreign_key: true
       t.references :contact, foreign_key: true
-      t.date :date_applied
+      t.date :date_applied, null: false
       t.string :website
       t.string :url
       t.boolean :still_acceptign_applications
