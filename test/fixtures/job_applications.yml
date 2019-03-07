@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  job: one
+  contact: one
+  date_applied: 2019-03-07
+  website: MyString
+  url: MyString
+  still_acceptign_applications: false
+  refused: false
+
+two:
+  company: two
+  job: two
+  contact: two
+  date_applied: 2019-03-07
+  website: MyString
+  url: MyString
+  still_acceptign_applications: false
+  refused: false
