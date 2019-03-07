@@ -29,6 +29,7 @@ ActiveAdmin.register JobApplication do
       row :still_acceptign_applications
       row :refused
       row :date_applied
+      row :content
       row :created_at
       row :updated_at
     end
