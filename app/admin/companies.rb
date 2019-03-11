@@ -8,8 +8,16 @@ ActiveAdmin.register Company do
 
     column :name
     column :location
-    column :website
-    column :linkedin_url
+    column :website do |record|
+      if record.website
+        link_to record.website, record.website
+      end
+    end
+    column :linkedin_url do |record|
+      if record.linkedin_url
+        link_to record.linkedin_url, record.linkedin_url
+      end
+    end
 
     actions
   end
@@ -30,10 +38,14 @@ ActiveAdmin.register Company do
       row :name
       row :location
       row :website do |record|
-        link_to record.website, record.website
+        if record.website
+          link_to record.website, record.website
+        end
       end
       row :linkedin_url do |record|
-        link_to record.linkedin_url, record.linkedin_url
+        if record.linkedin_url
+          link_to record.linkedin_url, record.linkedin_url
+        end
       end
       row :created_at
       row :updated_at
