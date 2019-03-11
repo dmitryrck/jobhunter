@@ -16,3 +16,5 @@ $ docker-compose run --rm app bundle exec rake db:create
 $ docker-compose run --rm app bundle exec rake db:migrate
 $ docker-compose up app
 ```
+
+Access [localhost:3000](http://localhost:3000).
