@@ -44,6 +44,7 @@ ActiveAdmin.register JobApplication do
 
     column :company
     column :title
+    column :accepting_applications
     column :refused
     column :date_applied
 
