@@ -14,6 +14,7 @@ context "JobApplications" do
     select "Company#1", from: "Company"
     fill_in "Title", with: "JobApplication#1"
     fill_in "Date applied", with: "2018-12-31"
+    check "Accepting applications"
 
     click_on "Create"
 
@@ -21,6 +22,7 @@ context "JobApplications" do
     expect(page).to have_content "TITLE JobApplication#1"
     expect(page).to have_content "COMPANY Company#1"
     expect(page).to have_content "DATE APPLIED December 31, 2018"
+    expect(page).to have_content "ACCEPTING APPLICATIONS YES"
   end
 
   it "updates", js: true do
@@ -34,11 +36,13 @@ context "JobApplications" do
     click_link "Edit"
 
     fill_in "Title", with: "Other JobApplication"
+    uncheck "Accepting applications"
 
     click_on "Update"
 
     expect(page).to have_content "Job application was successfully updated"
     expect(page).to have_content "TITLE Other JobApplication"
+    expect(page).to have_content "ACCEPTING APPLICATIONS NO"
   end
 
   it "destroy", js: true do

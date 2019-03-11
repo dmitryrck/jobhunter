@@ -1,6 +1,6 @@
 ActiveAdmin.register JobApplication do
   permit_params :company_id, :title, :contact_id, :website, :url,
-    :date_applied, :still_acceptign_applications, :refused, :content
+    :date_applied, :accepting_applications, :refused, :content
 
   form do |f|
     inputs t("active_admin.details", model: resource_class) do
@@ -8,7 +8,7 @@ ActiveAdmin.register JobApplication do
       input :company
       input :contact
       input :url
-      input :still_acceptign_applications
+      input :accepting_applications
       input :refused
       input :date_applied, as: :string
       input :content
@@ -26,7 +26,7 @@ ActiveAdmin.register JobApplication do
       row :title
       row :contact
       row :url
-      row :still_acceptign_applications
+      row :accepting_applications
       row :refused
       row :date_applied
       row :content
