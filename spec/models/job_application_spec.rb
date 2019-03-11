@@ -4,13 +4,12 @@ describe JobApplication do
   subject do
     JobApplication.new(
       company: company,
-      job: job,
+      title: "Senior",
       date_applied: Date.current,
     )
   end
 
   let(:company) { Company.new(name: "Company#1") }
-  let(:job) { Job.new(title: "Job#1") }
 
   it { is_expected.to be_valid }
 
@@ -19,8 +18,8 @@ describe JobApplication do
     expect(subject).not_to be_valid
   end
 
-  it "should not be valid without job" do
-    subject.job = nil
+  it "should not be valid without title" do
+    subject.title = nil
     expect(subject).not_to be_valid
   end
 

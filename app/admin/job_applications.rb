@@ -1,11 +1,11 @@
 ActiveAdmin.register JobApplication do
-  permit_params :company_id, :job_id, :contact_id, :website, :url,
+  permit_params :company_id, :title, :contact_id, :website, :url,
     :date_applied, :still_acceptign_applications, :refused, :content
 
   form do |f|
     inputs t("active_admin.details", model: resource_class) do
       input :company
-      input :job
+      input :title
       input :contact
       input :url
       input :still_acceptign_applications
@@ -23,7 +23,7 @@ ActiveAdmin.register JobApplication do
       row :company_location do |job_application|
         job_application.location
       end
-      row :job
+      row :title
       row :contact
       row :url
       row :still_acceptign_applications
@@ -43,7 +43,7 @@ ActiveAdmin.register JobApplication do
     id_column
 
     column :company
-    column :job
+    column :title
     column :refused
     column :date_applied
 
