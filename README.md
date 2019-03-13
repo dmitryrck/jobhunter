@@ -6,7 +6,7 @@
 
 App built on top of ActiveAdmin to help keeping track of job applications.
 
-# Running
+## Running
 
 ```terminal
 $ cp docker-compose.yml.sample docker-compose.yml
