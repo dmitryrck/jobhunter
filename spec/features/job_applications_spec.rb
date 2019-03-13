@@ -11,6 +11,7 @@ context "JobApplications" do
     click_link "Job Applications"
     click_link "New Job Application"
 
+    expect(page).to have_field "Date applied", with: Date.current.to_s
     select "Company#1", from: "Company"
     fill_in "Title", with: "JobApplication#1"
     fill_in "Date applied", with: "2018-12-31"

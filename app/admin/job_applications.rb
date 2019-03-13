@@ -10,7 +10,7 @@ ActiveAdmin.register JobApplication do
       input :url
       input :accepting_applications
       input :refused
-      input :date_applied, as: :string
+      input :date_applied, as: :string, input_html: { value: (f.object.date_applied || Date.current) }
       input :content
     end
 
