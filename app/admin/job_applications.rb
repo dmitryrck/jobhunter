@@ -5,8 +5,8 @@ ActiveAdmin.register JobApplication do
   form do |f|
     inputs t("active_admin.details", model: resource_class) do
       input :title, input_html: { autofocus: true }
-      input :company
-      input :contact
+      input :company, collection: Company.ordered
+      input :contact, collection: Contact.ordered
       input :url
       input :accepting_applications
       input :refused
