@@ -5,6 +5,57 @@ context "JobApplications" do
 
   let(:company) { Company.new(name: "Company#1") }
 
+  it "scopes to active" do
+    company.save
+
+    JobApplication.create(
+      date_applied: Date.current,
+      company: company,
+      title: "Inactive#1",
+      accepting_applications: true,
+      refused: true,
+    )
+
+    JobApplication.create(
+      date_applied: Date.current,
+      company: company,
+      title: "Active#1",
+      accepting_applications: true,
+      refused: false,
+    )
+
+    JobApplication.create(
+      date_applied: Date.current,
+      company: company,
+      title: "Inactive#2",
+      accepting_applications: false,
+      refused: false,
+    )
+
+    JobApplication.create(
+      date_applied: Date.current,
+      company: company,
+      title: "Inactive#3",
+      accepting_applications: false,
+      refused: true,
+    )
+
+    click_link "Job Applications"
+    expect(page).to have_content "Active#1"
+    expect(page).to have_content "Inactive#1"
+    expect(page).to have_content "Inactive#2"
+    expect(page).to have_content "Inactive#3"
+
+    within ".scopes" do
+      click_link "Active"
+    end
+
+    expect(page).to have_content "Active#1"
+    expect(page).not_to have_content "Inactive#1"
+    expect(page).not_to have_content "Inactive#2"
+    expect(page).not_to have_content "Inactive#3"
+  end
+
   it "creates" do
     company.save
 

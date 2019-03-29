@@ -2,6 +2,8 @@ ActiveAdmin.register JobApplication do
   permit_params :company_id, :title, :contact_id, :website, :url,
     :date_applied, :accepting_applications, :refused, :content
 
+  scope :active
+
   form do |f|
     inputs t("active_admin.details", model: resource_class) do
       input :title, input_html: { autofocus: true }
