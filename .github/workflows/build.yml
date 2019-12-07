@@ -1,0 +1,21 @@
+name: build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - uses: actions/cache@v1
+        id: rubycache
+        with:
+          path: vendor/bundle
+          key: ${{ runner.OS }}-rubycache-v1-${{ hashFiles('Gemfile.lock') }}
+      - run: cp config/database.yml.sample config/database.yml
+      - run: cp docker-compose.yml.sample docker-compose.yml
+      - run: docker-compose pull
+      - run: docker-compose run --rm -e RAILS_ENV=test app bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: docker-compose run --rm -e RAILS_ENV=test app bundle exec rake db:create
+      - run: docker-compose run --rm -e RAILS_ENV=test app bundle exec rake db:migrate
+      - run: docker-compose run --rm app bundle exec rspec -f d
+      - run: docker-compose run --rm app chown -R $(id -u):$(id -u) /app
