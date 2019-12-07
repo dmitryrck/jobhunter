@@ -1,4 +1,3 @@
-[![Build Status](https://semaphoreci.com/api/v1/dmitryrck/jobhunter/branches/master/badge.svg)](https://semaphoreci.com/dmitryrck/jobhunter)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3d3b739eef0d44796fb9/maintainability)](https://codeclimate.com/github/dmitryrck/jobhunter/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3d3b739eef0d44796fb9/test_coverage)](https://codeclimate.com/github/dmitryrck/jobhunter/test_coverage)
 
