@@ -2,6 +2,7 @@ development: &postgres
   adapter: postgresql
   encoding: unicode
   username: postgres
+  password: postgres
   database: postgres
   host: db
   port: 5432
